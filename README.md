@@ -1,82 +1,103 @@
-CleamyJSON
+# CleamyJSON
 
-CleamyJSON is a lightweight, fast, and privacy-friendly online JSON formatter and validator.
-It allows users to format, validate, and beautify JSON instantly — directly in the browser.
+CleamyJSON is a lightweight, fast, and privacy-focused online JSON formatter and validator.  
+It allows users to format, validate, beautify, and minify JSON instantly — directly in the browser.
 
-🌐 Live Website: https://cleanmyjson.com
-📦 Hosted via GitHub static hosting
+🌐 **Live Website:** https://cleanmyjson.com  
+📦 **Hosting:** GitHub Pages (Static Hosting)
 
-⸻
+---
 
-🚀 Features
-	•	✅ JSON formatting & beautification
-	•	✅ JSON validation with error highlighting
-	•	✅ Minify JSON
-	•	✅ Copy to clipboard
-	•	✅ 100% client-side processing (no server, no data storage)
-	•	✅ Fast and lightweight
+## 🚀 Features
 
-⸻
+- ✅ JSON formatting & beautification
+- ✅ JSON validation with error highlighting
+- ✅ JSON minification
+- ✅ Copy to clipboard
+- ✅ 100% client-side processing (no backend)
+- ✅ Fast and lightweight
+- ✅ Mobile responsive design
 
-🛠 Tech Stack
-	•	HTML5
-	•	CSS3
-	•	JavaScript (Vanilla JS)
-	•	Hosted using GitHub static hosting (GitHub Pages)
+---
 
-⸻
+## 🛠 Tech Stack
 
-📂 Project Structure
-  cleamyjson/
-  │
-  ├── index.html
-  ├── assets/
-  │   ├── css
-  │   ├── js
-  └── README.md
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- GitHub Pages (Static Hosting)
 
-🌍 Hosting (GitHub Pages)
+---
 
-This project is deployed as a static website using GitHub Pages.
+## 📂 Project Structure
+	cleamyjson/
+	│
+	├── index.html
+	├── assets/
+	│   ├── css
+	│   ├── js
+	└── README.md
 
-To deploy:
-	1.	Push your project to a GitHub repository.
-	2.	Go to:
-    Settings → Pages
-  3.	Under Source, select:
-  	•	Branch: main
-  	•	Folder: / (root)
-  4.	Click Save.    
+---
 
-Your website will be available at:
-  https://yourusername.github.io/repository-name/
+## 🌍 Deployment (GitHub Pages)
 
-🔒 Privacy
+This project is deployed as a static website using **GitHub Pages**.
 
-CleamyJSON processes all JSON data locally in the browser.
-No data is sent to any server. No tracking. No storage.
+### Steps to Deploy
 
-⸻
+1. Push the project to your GitHub repository.
+2. Navigate to:   Settings → Pages
+3. Under **Source**, select:
+	- Branch: `main`
+	- Folder: `/ (root)`
+4. Click **Save**.
 
-📈 SEO & Performance
-	•	Semantic HTML structure
-	•	Optimized meta tags
-	•	Lightweight assets
-	•	Fast load time
-	•	Mobile responsive
+Your site will be available at:		https://yourusername.github.io/repository-name/
 
-⸻
+---
 
-🤝 Contributing
+## 🔒 Privacy Policy
+
+CleamyJSON processes all JSON data **locally in the browser**.
+
+- No data is sent to any server
+- No tracking
+- No data storage
+- No third-party processing
+
+Your data stays on your device.
+
+---
+
+## 📈 SEO & Performance Optimization
+
+- Semantic HTML structure
+- Optimized meta tags
+- Lightweight assets
+- Fast loading time
+- Fully responsive layout
+- Clean URL structure
+
+---
+
+## 🤝 Contributing
 
 Contributions are welcome!
-	1.	Fork the repository
-	2.	Create a feature branch
-	3.	Submit a Pull Request
 
-⸻
+1. Fork the repository
+2. Create a new feature branch
+3. Commit your changes
+4. Submit a Pull Request
 
-📄 License
+---
 
-This project is open-source and available under the MIT License.
-  
+## 📄 License
+
+This project is open-source and available under the **MIT License**.
+
+---
+
+## ⭐ Support
+
+If you find this project useful, consider giving it a star on GitHub.
