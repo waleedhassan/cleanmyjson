@@ -19,22 +19,22 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Getting Started with JSON Formatting – Clean My JSON Blog</title>
-    <meta name="description" content="Learn the basics of JSON formatting, why clean readable JSON matters, and how Clean My JSON helps you validate and format JSON instantly.">
+    <title>5 Common JSON Mistakes and How to Fix Them – Clean My JSON Blog</title>
+    <meta name="description" content="Discover the 5 most common JSON mistakes developers make and learn how to fix them. From trailing commas to encoding issues, this guide covers it all.">
     <meta name="author" content="CleanMyJSON">
-    <link rel="canonical" href="https://cleanmyjson.com/blog/getting-started-with-json-formatting">
+    <link rel="canonical" href="https://cleanmyjson.com/blog/5-common-json-mistakes-and-how-to-fix-them">
 
-    <meta property="og:title" content="Getting Started with JSON Formatting – Clean My JSON Blog">
-    <meta property="og:description" content="Learn the basics of JSON formatting, why clean readable JSON matters, and how Clean My JSON helps you validate and format JSON instantly.">
+    <meta property="og:title" content="5 Common JSON Mistakes and How to Fix Them – Clean My JSON Blog">
+    <meta property="og:description" content="Discover the 5 most common JSON mistakes developers make and learn how to fix them. From trailing commas to encoding issues, this guide covers it all.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://cleanmyjson.com/blog/getting-started-with-json-formatting">
+    <meta property="og:url" content="https://cleanmyjson.com/blog/5-common-json-mistakes-and-how-to-fix-them">
 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "Getting Started with JSON Formatting",
-        "description": "Learn the basics of JSON formatting, why clean readable JSON matters, and how Clean My JSON helps you validate and format JSON instantly.",
+        "headline": "5 Common JSON Mistakes and How to Fix Them",
+        "description": "Discover the 5 most common JSON mistakes developers make and learn how to fix them. From trailing commas to encoding issues, this guide covers it all.",
         "author": {
             "@type": "Organization",
             "name": "CleanMyJSON"
@@ -44,9 +44,9 @@
             "name": "CleanMyJSON",
             "url": "https://cleanmyjson.com/"
         },
-        "datePublished": "2026-02-15",
-        "dateModified": "2026-02-15",
-        "mainEntityOfPage": "https://cleanmyjson.com/blog/getting-started-with-json-formatting"
+        "datePublished": "2026-03-29",
+        "dateModified": "2026-03-29",
+        "mainEntityOfPage": "https://cleanmyjson.com/blog/5-common-json-mistakes-and-how-to-fix-them"
     }
     </script>
 
@@ -289,236 +289,286 @@
 
         <!-- Article -->
         <article>
-            <h1 class="post-title">Getting Started with JSON Formatting</h1>
+            <h1 class="post-title">5 Common JSON Mistakes and How to Fix Them</h1>
 
             <div class="post-meta">
-                <span>📅 February 15, 2026</span>
+                <span>📅 March 29, 2026</span>
                 <span>✍️ CleanMyJSON Team</span>
-                <span>⏱️ 6 min read</span>
+                <span>⏱️ 8 min read</span>
             </div>
 
             <div class="post-tags">
-                <span class="tag">Tutorial</span>
                 <span class="tag">JSON</span>
-                <span class="tag">Formatting</span>
+                <span class="tag">Debugging</span>
+                <span class="tag">Best Practices</span>
             </div>
 
             <p>
-                If you've ever worked with APIs, configuration files, or web applications, you've likely encountered messy JSON.
-                Unformatted data can be hard to read, difficult to debug, and frustrating to maintain.
-                Getting started with JSON formatting is one of the simplest ways to improve your development workflow.
+                JSON is one of the most widely used data formats in modern development, but it's also surprisingly easy
+                to make mistakes. A single misplaced comma or missing quote can break your entire application.
+                Understanding these common pitfalls will save you hours of debugging time.
             </p>
 
             <p>
-                In this guide, you'll learn what JSON formatting is, why clean and readable JSON matters,
-                and how <a href="https://cleanmyjson.com/">Clean My JSON</a> can instantly format, validate, and fix your JSON data.
+                In this guide, we'll explore the 5 most common JSON mistakes developers make and show you exactly
+                how to fix them. Whether you're a beginner or an experienced developer, these tips will help you
+                write cleaner, more reliable JSON.
             </p>
 
-            <h2>What Is JSON Formatting?</h2>
+            <h2>1. Trailing Commas</h2>
 
             <p>
-                JSON formatting (also called pretty printing JSON) is the process of adding indentation, line breaks,
-                and consistent spacing to raw JSON data to make it easier for humans to read and understand.
+                Trailing commas are one of the most frequent JSON errors. While JavaScript objects allow trailing commas,
+                standard JSON does not. This mistake often happens when you're used to writing JavaScript and forget that
+                JSON has stricter syntax rules.
             </p>
 
-            <h3>Unformatted JSON Example</h3>
-
-            <p>Here's what raw, minified JSON typically looks like:</p>
-
-            <pre><code>{"id":1,"user":{"name":"Waleed","roles":["admin","editor"],"active":true},"orders":[{"orderId":101,"amount":250.75},{"orderId":102,"amount":89.50}]}</code></pre>
-
-            <p>
-                While technically valid, this compact JSON is difficult to scan quickly and spot potential errors.
-            </p>
-
-            <h3>Formatted JSON Example</h3>
-
-            <p>After proper formatting, the same JSON becomes much more readable:</p>
+            <h3>The Mistake</h3>
 
             <pre><code>{
-  "id": 1,
-  "user": {
-    "name": "Waleed",
-    "roles": [
-      "admin",
-      "editor"
-    ],
-    "active": true
-  },
-  "orders": [
-    {
-      "orderId": 101,
-      "amount": 250.75
-    },
-    {
-      "orderId": 102,
-      "amount": 89.50
-    }
-  ]
+  "users": [
+    {"name": "Alice", "role": "admin"},
+    {"name": "Bob", "role": "editor"},
+  ],
+  "settings": {
+    "theme": "dark",
+    "notifications": true,
+  }
 }</code></pre>
 
             <p>
-                Notice how indentation and consistent spacing make the structure clear and easy to follow.
-                You can instantly see the nested objects and arrays at a glance.
+                The trailing commas after the last array element and last object property will cause a JSON parse error.
             </p>
 
-            <h2>Why Clean, Readable JSON Matters</h2>
+            <h3>The Fix</h3>
 
-            <p>Properly formatted JSON offers several key benefits for developers:</p>
-
-            <ul>
-                <li><strong>Faster debugging:</strong> Easily spot missing brackets, misplaced commas, or typos in key names.</li>
-                <li><strong>Improved collaboration:</strong> Teammates can quickly understand the data structure during code reviews.</li>
-                <li><strong>Reduced errors:</strong> Clean formatting helps identify structural mistakes before they cause runtime errors.</li>
-                <li><strong>Better version control diffs:</strong> Clear indentation makes changes easier to track in git commits.</li>
-                <li><strong>Easier documentation:</strong> Well-formatted JSON serves as self-documenting configuration.</li>
-            </ul>
-
-            <h2>Common JSON Formatting Mistakes</h2>
-
-            <p>Even experienced developers make JSON formatting errors. Here are the most common mistakes to avoid:</p>
-
-            <h3>1. Missing Quotes Around Keys</h3>
-
-            <p>Unlike JavaScript objects, JSON requires double quotes around all keys:</p>
-
-            <pre><code>// Invalid - missing quotes on key
-{
-  name: "Waleed",
-  "age": 30
-}
-
-// Valid - all keys quoted
-{
-  "name": "Waleed",
-  "age": 30
+            <pre><code>{
+  "users": [
+    {"name": "Alice", "role": "admin"},
+    {"name": "Bob", "role": "editor"}
+  ],
+  "settings": {
+    "theme": "dark",
+    "notifications": true
+  }
 }</code></pre>
-
-            <h3>2. Trailing Commas</h3>
-
-            <p>Trailing commas are not allowed in standard JSON:</p>
-
-            <pre><code>// Invalid - trailing comma
-{
-  "city": "Riyadh",
-  "country": "Saudi Arabia",
-}
-
-// Valid - no trailing comma
-{
-  "city": "Riyadh",
-  "country": "Saudi Arabia"
-}</code></pre>
-
-            <h3>3. Single Quotes Instead of Double Quotes</h3>
-
-            <p>JSON only accepts double quotes for strings:</p>
-
-            <pre><code>// Invalid - single quotes
-{
-  'name': 'Waleed'
-}
-
-// Valid - double quotes
-{
-  "name": "Waleed"
-}</code></pre>
-
-            <h3>4. Using Comments</h3>
-
-            <p>Standard JSON does not support comments:</p>
-
-            <pre><code>// Invalid - comments not allowed
-{
-  "name": "Waleed", // user's name
-  "age": 30
-}
-
-// Valid - no comments
-{
-  "name": "Waleed",
-  "age": 30
-}</code></pre>
-
-            <h2>How Clean My JSON Speeds Up Your Workflow</h2>
-
-            <p>
-                Instead of manually fixing spacing and hunting for syntax errors, you can use
-                <a href="https://cleanmyjson.com/">Clean My JSON</a> to handle the heavy lifting:
-            </p>
-
-            <ul>
-                <li><strong>Format instantly:</strong> Paste raw JSON and get beautifully formatted output in one click.</li>
-                <li><strong>Validate structure:</strong> Get immediate feedback on whether your JSON is valid.</li>
-                <li><strong>Spot errors:</strong> See exactly where syntax errors occur with clear error messages.</li>
-                <li><strong>Minify for production:</strong> Convert formatted JSON back to compact form for smaller file sizes.</li>
-                <li><strong>Copy with one click:</strong> Get your formatted JSON ready to paste anywhere.</li>
-            </ul>
-
-            <h2>Step-by-Step: Formatting JSON Online</h2>
-
-            <p>Using Clean My JSON is straightforward. Here's how to format your JSON in seconds:</p>
-
-            <ol>
-                <li><strong>Copy your raw JSON data</strong> from your source file or API response.</li>
-                <li><strong>Open <a href="https://cleanmyjson.com/">Clean My JSON</a></strong> in your browser.</li>
-                <li><strong>Paste your JSON</strong> into the left editor panel.</li>
-                <li><strong>Click the Format button</strong> to instantly pretty-print your JSON.</li>
-                <li><strong>Review the output</strong> in the right panel and copy or download as needed.</li>
-            </ol>
 
             <blockquote>
-                <strong>Pro tip:</strong> If your JSON has errors, Clean My JSON will highlight the issue and show you
-                exactly where the problem is, making it easy to fix syntax mistakes.
+                <strong>Pro tip:</strong> Use <a href="https://cleanmyjson.com/">Clean My JSON</a> to automatically detect
+                and highlight trailing commas in your JSON.
             </blockquote>
 
-            <h2>JSON Formatting Best Practices</h2>
+            <h2>2. Using Single Quotes Instead of Double Quotes</h2>
 
-            <p>Follow these best practices to keep your JSON clean and maintainable:</p>
+            <p>
+                JSON strictly requires double quotes for all strings, including keys and values. Single quotes are not
+                valid JSON syntax, even though they work in JavaScript objects.
+            </p>
+
+            <h3>The Mistake</h3>
+
+            <pre><code>{
+  'name': 'John Doe',
+  'email': 'john@example.com',
+  'active': true
+}</code></pre>
+
+            <h3>The Fix</h3>
+
+            <pre><code>{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "active": true
+}</code></pre>
+
+            <p>
+                Remember: in JSON, strings <em>must</em> use double quotes. No exceptions.
+            </p>
+
+            <h2>3. Missing Quotes Around Keys</h2>
+
+            <p>
+                In JavaScript, you can often omit quotes around object keys. In JSON, all keys must be wrapped in
+                double quotes. This is a strict requirement that catches many developers off guard.
+            </p>
+
+            <h3>The Mistake</h3>
+
+            <pre><code>{
+  name: "Sarah",
+  age: 28,
+  isActive: true,
+  role: admin
+}</code></pre>
+
+            <h3>The Fix</h3>
+
+            <pre><code>{
+  "name": "Sarah",
+  "age": 28,
+  "isActive": true,
+  "role": "admin"
+}</code></pre>
+
+            <p>
+                Notice that we also fixed <code>admin</code> by wrapping it in quotes—it should be a string value,
+                not an undefined variable.
+            </p>
+
+            <h2>4. Using Comments in JSON</h2>
+
+            <p>
+                Standard JSON does not support comments. If you're coming from languages like JavaScript or Python,
+                this limitation can be frustrating. However, including comments in your JSON will cause parse errors.
+            </p>
+
+            <h3>The Mistake</h3>
+
+            <pre><code>{
+  // User configuration settings
+  "config": {
+    "theme": "dark", // dark or light theme
+    "language": "en",
+    /* Multi-line comments
+       are also not allowed */
+    "timezone": "UTC"
+  }
+}</code></pre>
+
+            <h3>The Fix</h3>
+
+            <p>If you need to document your JSON, consider these alternatives:</p>
+
+            <pre><code>{
+  "config": {
+    "_comment": "User configuration settings",
+    "theme": "dark",
+    "_themeDescription": "Options: dark, light, auto",
+    "language": "en",
+    "timezone": "UTC"
+  }
+}</code></pre>
+
+            <p>
+                Or use a separate documentation file alongside your JSON configuration.
+            </p>
+
+            <h2>5. Special Characters and Unicode Issues</h2>
+
+            <p>
+                Handling special characters in JSON strings requires proper escaping. Newlines, tabs, quotes, and
+                backslashes all need to be escaped. Unicode characters also need proper encoding.
+            </p>
+
+            <h3>The Mistake</h3>
+
+            <pre><code>{
+  "message": "Hello "World"",
+  "path": "C:\Users\Documents",
+  "multiline": "Line 1
+Line 2
+Line 3"
+}</code></pre>
+
+            <h3>The Fix</h3>
+
+            <pre><code>{
+  "message": "Hello \"World\"",
+  "path": "C:\\Users\\Documents",
+  "multiline": "Line 1\nLine 2\nLine 3",
+  "emoji": "Hello \ud83d\ude00",
+  "unicode": "Copyright \u00a9 2026"
+}</code></pre>
+
+            <h3>Common Escape Sequences</h3>
 
             <ul>
-                <li><strong>Use 2 or 4 space indentation</strong> consistently throughout your project.</li>
-                <li><strong>Keep lines under 80 characters</strong> when possible for better readability.</li>
-                <li><strong>Sort keys alphabetically</strong> in configuration objects for easier scanning.</li>
-                <li><strong>Use meaningful key names</strong> that describe the data they contain.</li>
-                <li><strong>Validate your JSON</strong> before committing changes to version control.</li>
+                <li><code>\"</code> – Double quote</li>
+                <li><code>\\</code> – Backslash</li>
+                <li><code>\/</code> – Forward slash (optional but safe)</li>
+                <li><code>\n</code> – Newline</li>
+                <li><code>\t</code> – Tab</li>
+                <li><code>\r</code> – Carriage return</li>
+                <li><code>\uXXXX</code> – Unicode character</li>
             </ul>
 
-            <h2>When to Use Minified vs Formatted JSON</h2>
+            <h2>Bonus: Unquoted String Values</h2>
 
-            <p>There's a time and place for both formatted and minified JSON:</p>
+            <p>
+                Another common mistake is forgetting that all string values in JSON must be quoted. Numbers, booleans,
+                and null don't need quotes, but strings always do.
+            </p>
 
-            <h3>Use Formatted JSON For:</h3>
+            <h3>The Mistake</h3>
+
+            <pre><code>{
+  "status": active,
+  "count": "42",
+  "price": $99.99,
+  "enabled": "true"
+}</code></pre>
+
+            <h3>The Fix</h3>
+
+            <pre><code>{
+  "status": "active",
+  "count": 42,
+  "price": 99.99,
+  "enabled": true
+}</code></pre>
+
+            <p>
+                Notice how we fixed each value type: strings get quotes, numbers stay unquoted, and boolean values
+                are literal <code>true</code>/<code>false</code> without quotes.
+            </p>
+
+            <h2>How to Validate and Fix JSON Quickly</h2>
+
+            <p>
+                Manually hunting for JSON errors can be tedious, especially in large files. The good news is that
+                tools can help you catch these mistakes instantly.
+            </p>
+
+            <p>
+                <a href="https://cleanmyjson.com/">Clean My JSON</a> is a free online tool that:
+            </p>
+
             <ul>
-                <li>Configuration files (package.json, tsconfig.json)</li>
-                <li>Development and debugging</li>
-                <li>Code reviews and documentation</li>
-                <li>API response examples in documentation</li>
+                <li><strong>Validates your JSON</strong> and shows exactly where errors occur</li>
+                <li><strong>Formats messy JSON</strong> into clean, readable structure</li>
+                <li><strong>Minifies JSON</strong> for production use</li>
+                <li><strong>Works in your browser</strong> – no data sent to servers</li>
             </ul>
 
-            <h3>Use Minified JSON For:</h3>
-            <ul>
-                <li>Production API responses (smaller payload)</li>
-                <li>Large data files where size matters</li>
-                <li>Transmitting data over slow connections</li>
-            </ul>
+            <h2>Best Practices to Avoid JSON Errors</h2>
+
+            <p>Follow these tips to write error-free JSON:</p>
+
+            <ol>
+                <li><strong>Use a JSON validator</strong> – Always validate your JSON before using it in production.</li>
+                <li><strong>Use proper editors</strong> – IDEs like VS Code highlight JSON errors automatically.</li>
+                <li><strong>Lint your JSON files</strong> – Add JSON linting to your CI/CD pipeline.</li>
+                <li><strong>Keep it simple</strong> – Avoid unnecessary nesting and complex structures.</li>
+                <li><strong>Test with real data</strong> – Validate JSON against actual API responses.</li>
+            </ol>
 
             <h2>Conclusion</h2>
 
             <p>
-                Getting started with JSON formatting is simple, but it makes a significant difference in your daily workflow.
-                Clean, readable JSON improves debugging, collaboration, and overall productivity.
+                JSON errors are frustrating but avoidable. By understanding these 5 common mistakes—trailing commas,
+                single quotes, unquoted keys, comments, and special character issues—you'll write cleaner JSON and
+                spend less time debugging.
             </p>
 
             <p>
-                Whether you're a developer working with APIs, a DevOps engineer managing configuration files,
-                or a student learning about data formats, <a href="https://cleanmyjson.com/">Clean My JSON</a>
-                gives you the tools you need to work with JSON efficiently.
+                The next time you encounter a JSON parse error, check for these common issues first. And when you need
+                to quickly format or validate JSON, remember that <a href="https://cleanmyjson.com/">Clean My JSON</a>
+                is here to help you get your data clean and error-free in seconds.
             </p>
 
             <p>
-                Ready to clean up your JSON? <a href="https://cleanmyjson.com/">Try Clean My JSON today</a>
-                and make messy, unreadable JSON a thing of the past.
+                Ready to fix your JSON? <a href="https://cleanmyjson.com/">Try Clean My JSON now</a>
+                and say goodbye to syntax errors.
             </p>
         </article>
 
