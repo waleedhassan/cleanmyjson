@@ -1,1 +1,425 @@
-Loading
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B8GCFENCYD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-B8GCFENCYD');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10963579332"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-10963579332');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog – Clean My JSON</title>
+    <meta name="description" content="Tips, tutorials, and insights about JSON formatting, validation, and best practices from the CleanMyJSON team.">
+    <meta name="author" content="CleanMyJSON">
+    <link rel="canonical" href="https://cleanmyjson.com/blog-index.html">
+
+    <meta property="og:title" content="Blog – Clean My JSON">
+    <meta property="og:description" content="Tips, tutorials, and insights about JSON formatting, validation, and best practices.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cleanmyjson.com/blog-index.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Clean My JSON Blog",
+        "description": "Tips, tutorials, and insights about JSON formatting, validation, and best practices.",
+        "url": "https://cleanmyjson.com/blog-index.html",
+        "publisher": {
+            "@type": "Organization",
+            "name": "CleanMyJSON",
+            "url": "https://cleanmyjson.com/"
+        }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ── CSS Variables (matching main app) ── */
+        :root {
+            --background: 0 0% 98%;
+            --foreground: 220 20% 10%;
+            --card: 0 0% 100%;
+            --card-foreground: 220 20% 10%;
+            --primary: 174 72% 40%;
+            --primary-foreground: 0 0% 100%;
+            --secondary: 220 14% 92%;
+            --secondary-foreground: 220 20% 20%;
+            --muted: 220 14% 94%;
+            --muted-foreground: 215 15% 45%;
+            --accent: 174 72% 40%;
+            --border: 220 14% 85%;
+        }
+
+        .dark {
+            --background: 220 20% 10%;
+            --foreground: 210 20% 95%;
+            --card: 220 18% 13%;
+            --card-foreground: 210 20% 95%;
+            --primary: 174 72% 46%;
+            --primary-foreground: 220 20% 10%;
+            --secondary: 220 16% 18%;
+            --secondary-foreground: 210 20% 85%;
+            --muted: 220 14% 16%;
+            --muted-foreground: 215 15% 55%;
+            --accent: 174 72% 46%;
+            --border: 220 14% 20%;
+        }
+
+        /* ── Reset & Base ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: hsl(var(--primary)); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* ── Layout ── */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* ── Header / Nav ── */
+        .site-header {
+            border-bottom: 1px solid hsl(var(--border));
+            padding: 1rem 0;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .site-header .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, hsl(var(--primary)), hsl(142 70% 45%));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .site-header nav { display: flex; align-items: center; gap: 1rem; }
+        .site-header nav a { color: hsl(var(--muted-foreground)); font-size: 0.875rem; }
+        .site-header nav a:hover { color: hsl(var(--foreground)); text-decoration: none; }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid hsl(var(--border));
+            border-radius: 0.5rem;
+            padding: 0.4rem 0.6rem;
+            cursor: pointer;
+            color: hsl(var(--muted-foreground));
+            font-size: 0.85rem;
+        }
+        .theme-toggle:hover { color: hsl(var(--foreground)); }
+
+        /* ── Page Header ── */
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, hsl(var(--primary)), hsl(142 70% 45%));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            color: hsl(var(--muted-foreground));
+            font-size: 1.1rem;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* ── Blog Grid ── */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        /* ── Blog Card ── */
+        .blog-card {
+            background: hsl(var(--card));
+            border: 1px solid hsl(var(--border));
+            border-radius: 0.75rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .blog-card .thumbnail {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .blog-card .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .blog-card:hover {
+            border-color: hsl(var(--primary));
+            box-shadow: 0 4px 20px -6px hsl(var(--primary) / 0.15);
+        }
+
+        .blog-card .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: hsl(var(--primary));
+            background: hsl(var(--primary) / 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            margin-bottom: 0.75rem;
+            align-self: flex-start;
+        }
+
+        .blog-card h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card h2 a {
+            color: hsl(var(--card-foreground));
+        }
+
+        .blog-card h2 a:hover {
+            color: hsl(var(--primary));
+            text-decoration: none;
+        }
+
+        .blog-card .date {
+            font-size: 0.8rem;
+            color: hsl(var(--muted-foreground));
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-card .excerpt {
+            font-size: 0.9rem;
+            color: hsl(var(--muted-foreground));
+            line-height: 1.6;
+            flex: 1;
+            margin-bottom: 1rem;
+        }
+
+        .blog-card .read-more {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: hsl(var(--primary));
+            align-self: flex-start;
+        }
+
+        .blog-card .read-more:hover { text-decoration: underline; }
+
+        /* ── Footer ── */
+        .site-footer {
+            border-top: 1px solid hsl(var(--border));
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: hsl(var(--muted-foreground));
+            font-size: 0.875rem;
+        }
+
+        .site-footer nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 0.75rem;
+        }
+
+        .site-footer nav a { color: hsl(var(--muted-foreground)); }
+        .site-footer nav a:hover { color: hsl(var(--foreground)); }
+        .site-footer .dot { color: hsl(var(--border)); }
+
+        /* ── Tag Filter Bar ── */
+        .tag-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid hsl(var(--border));
+            background: transparent;
+            color: hsl(var(--muted-foreground));
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover {
+            border-color: hsl(var(--primary));
+            color: hsl(var(--primary));
+        }
+
+        .filter-btn.active {
+            background: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            border-color: hsl(var(--primary));
+        }
+
+        /* ── Tags Row inside card ── */
+        .tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .blog-grid { grid-template-columns: 1fr; }
+            .page-header h1 { font-size: 1.8rem; }
+            .container { padding: 1.25rem 1rem; }
+        }
+    </style>
+    <script>
+        function filterByTag(tag) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === tag);
+            });
+            document.querySelectorAll('.blog-card').forEach(card => {
+                if (tag === 'all') {
+                    card.style.display = '';
+                } else {
+                    const tags = card.dataset.tags ? card.dataset.tags.split(',') : [];
+                    card.style.display = tags.includes(tag) ? '' : 'none';
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="site-header">
+            <a href="https://cleanmyjson.com/" class="logo">Clean My JSON</a>
+            <nav>
+                <a href="https://cleanmyjson.com/">Home</a>
+                <a href="https://cleanmyjson.com/#/about">About</a>
+                <button class="theme-toggle" onclick="document.documentElement.classList.toggle('dark')" aria-label="Toggle dark mode">🌓</button>
+            </nav>
+        </header>
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Blog</h1>
+            <p>Tips, tutorials, and insights about JSON formatting, validation, and developer workflows.</p>
+        </div>
+
+        <!-- Tag Filter -->
+        <div class="tag-filter">
+            <button class="filter-btn active" data-filter="all" onclick="filterByTag('all')">All</button>
+            <button class="filter-btn" data-filter="tutorial" onclick="filterByTag('tutorial')">Tutorial</button>
+            <button class="filter-btn" data-filter="best-practices" onclick="filterByTag('best-practices')">Best Practices</button>
+            <button class="filter-btn" data-filter="deep-dive" onclick="filterByTag('deep-dive')">Deep Dive</button>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="blog-grid" id="blogGrid">
+
+            <!-- Post 1 -->
+            <article class="blog-card" data-tags="tutorial,best-practices">
+                <img src="images/blog-thumb-1.jpg" alt="JSON formatting tutorial" class="thumbnail" loading="lazy">
+                <div class="card-body">
+                    <div class="tags-row">
+                        <span class="tag">Tutorial</span>
+                        <span class="tag">Best Practices</span>
+                    </div>
+                    <h2><a href="getting-started-with-JSON-formatting.html">Getting Started with JSON Formatting</a></h2>
+                    <span class="date">📅 February 15, 2026</span>
+                    <p class="excerpt">Learn the basics of JSON formatting — why clean, readable JSON matters and how Clean My JSON can speed up your workflow.</p>
+                    <a href="getting-started-with-JSON-formatting.html" class="read-more">Read more →</a>
+                </div>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="blog-card" data-tags="best-practices">
+                <img src="images/blog-thumb-2.jpg" alt="Common JSON mistakes" class="thumbnail" loading="lazy">
+                <div class="card-body">
+                    <div class="tags-row">
+                        <span class="tag">Best Practices</span>
+                    </div>
+                    <h2><a href="blog-post-2.html">5 Common JSON Mistakes and How to Fix Them</a></h2>
+                    <span class="date">📅 February 10, 2026</span>
+                    <p class="excerpt">Trailing commas, missing quotes, and other pitfalls — here are the most frequent JSON errors developers encounter.</p>
+                    <a href="blog-post-2.html" class="read-more">Read more →</a>
+                </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="blog-card" data-tags="deep-dive">
+                <img src="images/blog-thumb-3.jpg" alt="JSON vs YAML vs TOML comparison" class="thumbnail" loading="lazy">
+                <div class="card-body">
+                    <div class="tags-row">
+                        <span class="tag">Deep Dive</span>
+                    </div>
+                    <h2><a href="blog-post-3.html">JSON vs YAML vs TOML: Which Config Format Should You Use?</a></h2>
+                    <span class="date">📅 February 5, 2026</span>
+                    <p class="excerpt">A practical comparison of popular configuration formats to help you pick the right one for your project.</p>
+                    <a href="blog-post-3.html" class="read-more">Read more →</a>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <p>&copy; 2026 <a href="https://cleanmyjson.com/">Clean My JSON</a>. All rights reserved.</p>
+            <nav>
+                <a href="https://cleanmyjson.com/#/about">About</a>
+                <span class="dot">·</span>
+                <a href="https://cleanmyjson.com/#/contact">Contact</a>
+                <span class="dot">·</span>
+                <a href="https://cleanmyjson.com/#/privacy">Privacy</a>
+                <span class="dot">·</span>
+                <a href="https://cleanmyjson.com/#/terms">Terms</a>
+            </nav>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B8GCFENCYD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-B8GCFENCYD');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10963579332"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-10963579332');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- TEMPLATE: Update these for each blog post -->
+    <title>Getting Started with JSON Formatting – Clean My JSON Blog</title>
+    <meta name="description" content="Learn the basics of JSON formatting, why clean readable JSON matters, and how Clean My JSON helps you validate and format JSON instantly.">
+    <meta name="author" content="CleanMyJSON">
+    <link rel="canonical" href="https://cleanmyjson.com/blog/post-slug">
+
+    <meta property="og:title" content="Getting Started with JSON Formatting – Clean My JSON Blog">
+    <meta property="og:description" content="Learn the basics of JSON formatting, why clean readable JSON matters, and how Clean My JSON helps you validate and format JSON instantly.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://cleanmyjson.com/blog/post-slug">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Blog Post Title",
+        "description": "Blog post description goes here.",
+        "author": {
+            "@type": "Organization",
+            "name": "CleanMyJSON"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "CleanMyJSON",
+            "url": "https://cleanmyjson.com/"
+        },
+        "datePublished": "2026-02-15",
+        "dateModified": "2026-02-15",
+        "mainEntityOfPage": "https://cleanmyjson.com/blog/post-slug"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ── CSS Variables (matching main app) ── */
+        :root {
+            --background: 0 0% 98%;
+            --foreground: 220 20% 10%;
+            --card: 0 0% 100%;
+            --card-foreground: 220 20% 10%;
+            --primary: 174 72% 40%;
+            --primary-foreground: 0 0% 100%;
+            --secondary: 220 14% 92%;
+            --secondary-foreground: 220 20% 20%;
+            --muted: 220 14% 94%;
+            --muted-foreground: 215 15% 45%;
+            --accent: 174 72% 40%;
+            --border: 220 14% 85%;
+            --code-string: 142 70% 35%;
+            --code-number: 35 90% 40%;
+            --code-key: 174 72% 35%;
+        }
+
+        .dark {
+            --background: 220 20% 10%;
+            --foreground: 210 20% 95%;
+            --card: 220 18% 13%;
+            --card-foreground: 210 20% 95%;
+            --primary: 174 72% 46%;
+            --primary-foreground: 220 20% 10%;
+            --secondary: 220 16% 18%;
+            --secondary-foreground: 210 20% 85%;
+            --muted: 220 14% 16%;
+            --muted-foreground: 215 15% 55%;
+            --accent: 174 72% 46%;
+            --border: 220 14% 20%;
+            --code-string: 142 70% 60%;
+            --code-number: 35 90% 60%;
+            --code-key: 174 72% 56%;
+        }
+
+        /* ── Reset & Base ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: hsl(var(--primary)); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* ── Layout ── */
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* ── Header / Nav ── */
+        .site-header {
+            border-bottom: 1px solid hsl(var(--border));
+            padding: 1rem 0;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .site-header .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, hsl(var(--primary)), hsl(142 70% 45%));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .site-header nav { display: flex; align-items: center; gap: 1rem; }
+        .site-header nav a { color: hsl(var(--muted-foreground)); font-size: 0.875rem; }
+        .site-header nav a:hover { color: hsl(var(--foreground)); text-decoration: none; }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid hsl(var(--border));
+            border-radius: 0.5rem;
+            padding: 0.4rem 0.6rem;
+            cursor: pointer;
+            color: hsl(var(--muted-foreground));
+            font-size: 0.85rem;
+        }
+        .theme-toggle:hover { color: hsl(var(--foreground)); }
+
+        /* ── Article ── */
+        .post-meta {
+            color: hsl(var(--muted-foreground));
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .post-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .post-tags .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: hsl(var(--primary));
+            background: hsl(var(--primary) / 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+        }
+
+        .post-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 0.75rem;
+            color: hsl(var(--foreground));
+        }
+
+        .featured-image {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: hsl(var(--muted));
+            border-radius: 0.75rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: hsl(var(--muted-foreground));
+            font-size: 0.875rem;
+            border: 1px solid hsl(var(--border));
+        }
+
+        article h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 0.75rem;
+            color: hsl(var(--foreground));
+        }
+
+        article h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.5rem;
+            color: hsl(var(--foreground));
+        }
+
+        article p { margin-bottom: 1.25rem; }
+
+        article ul, article ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+
+        article li { margin-bottom: 0.4rem; }
+
+        article blockquote {
+            border-left: 3px solid hsl(var(--primary));
+            padding: 0.75rem 1rem;
+            margin: 1.5rem 0;
+            background: hsl(var(--muted));
+            border-radius: 0 0.5rem 0.5rem 0;
+            color: hsl(var(--muted-foreground));
+            font-style: italic;
+        }
+
+        /* ── Code blocks ── */
+        article code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85em;
+            background: hsl(var(--muted));
+            padding: 0.15rem 0.4rem;
+            border-radius: 0.3rem;
+            border: 1px solid hsl(var(--border));
+        }
+
+        article pre {
+            background: hsl(var(--card));
+            border: 1px solid hsl(var(--border));
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        article pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* ── Footer ── */
+        .site-footer {
+            border-top: 1px solid hsl(var(--border));
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: hsl(var(--muted-foreground));
+            font-size: 0.875rem;
+        }
+
+        .site-footer nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 0.75rem;
+        }
+
+        .site-footer nav a { color: hsl(var(--muted-foreground)); }
+        .site-footer nav a:hover { color: hsl(var(--foreground)); }
+        .site-footer .dot { color: hsl(var(--border)); }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .post-title { font-size: 1.6rem; }
+            .container { padding: 1.25rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="site-header">
+            <a href="https://cleanmyjson.com/" class="logo">Clean My JSON</a>
+            <nav>
+                <a href="https://cleanmyjson.com/">Home</a>
+                <a href="https://cleanmyjson.com/#/about">About</a>
+                <button class="theme-toggle" onclick="document.documentElement.classList.toggle('dark')" aria-label="Toggle dark mode">🌓</button>
+            </nav>
+        </header>
+
+        <!-- Article -->
+        <article>            
+            <h1 class="post-title">Getting Started with JSON Formatting</h1>
+
+            <div class="post-meta">
+                <!-- TEMPLATE: Update date and author -->
+                <span>📅 February 15, 2026</span>
+                <span>✍️ CleanMyJSON Team</span>
+                <span>⏱️ 7 min read</span>
+            </div>
+
+            <!-- TEMPLATE: Update tags for your post -->
+            <div class="post-tags">
+                <span class="tag">Tutorial</span>
+                <span class="tag">JSON</span>
+                <span class="tag">Formatting</span>
+            </div>
+
+            <!-- TEMPLATE: Replace with actual image or remove -->
+            <div class="featured-image">
+                <img src="images/blog-thumb-1.jpg" alt="Blog post featured image">                 
+            </div>
+
+            <!-- TEMPLATE: Replace everything below with your blog content -->
+
+            <p>
+                If you’ve ever worked with APIs, configuration files, or web applications, you’ve likely encountered messy JSON. 
+                Unformatted data can be hard to read, difficult to debug, and frustrating to maintain. 
+                Getting started with JSON formatting is one of the simplest ways to improve your development workflow.
+            </p>
+            <p>
+                In this guide, you’ll learn what JSON formatting is, why clean and readable JSON matters, 
+                and how <a href="https://cleanmyjson.com/">Clean My JSON</a> can instantly format, validate, and fix your JSON data.
+            </p>
+            
+            <h2>What Is JSON Formatting?</h2>
+
+            <p>
+                JSON formatting (also called pretty printing JSON) is the process of adding indentation, line breaks, 
+                and consistent spacing to raw JSON data to make it easier for humans to read.
+            </p>
+
+            <h3>Unformatted JSON Example</h3>
+                <pre><code>{"id":1,"user":{"name":“John","roles":["admin","editor"],“active”:true},“orders”:[{“orderId”:101,“amount”:250.75},{“orderId”:102,“amount”:89.50}]}</code></pre>
+
+            <p>
+                While technically valid, this compact JSON is difficult to scan quickly.
+            </p>
+
+            <h3>Formatted JSON Example</h3>
+
+                <pre><code>{“id”: 1,
+“user”: {
+“name”: “Waleed”,
+“roles”: [
+“admin”,
+“editor”
+],
+“active”: true
+},
+“orders”: [
+{
+“orderId”: 101,
+“amount”: 250.75
+},
+{
+“orderId”: 102,
+“amount”: 89.5
+}
+]
+}
+</code></pre>
+
+        <p>
+            Notice how indentation and spacing make the structure clear and easy to follow.
+        </p>
+
+        <h2>Why Clean, Readable JSON Matters</h2>
+
+        <ul>
+            <li><strong>Faster debugging:</strong> Easily spot missing brackets or misplaced commas.</li>
+            <li><strong>Improved collaboration:</strong> Teammates can quickly understand structured data.</li>
+            <li><strong>Reduced errors:</strong> Clean formatting helps identify structural mistakes.</li>
+            <li><strong>Better version control diffs:</strong> Clear indentation makes changes easier to track.</li>
+        </ul>
+
+        <h2>Common JSON Formatting Mistakes</h2>
+
+        <h3>1. Missing Quotes Around Keys</h3>
+
+        <pre><code>{
+name: “Waleed”,
+“age”: 30
+}
+            }</code></pre>
+
+
+            <p>Here's an example of a list:</p>
+
+            <ul>
+                <li>First item in the list</li>
+                <li>Second item with more detail</li>
+                <li>Third item to wrap up</li>
+            </ul>
+
+            <blockquote>
+                This is a blockquote. Use it for callouts, tips, or notable quotes.
+            </blockquote>
+
+            <h2>Code Example</h2>
+
+            <p>Use inline code like <code>JSON.parse()</code> for short references. For longer blocks:</p>
+
+            <pre><code>{
+  "name": "Clean My JSON",
+  "version": "1.0.0",
+  "description": "Free online JSON formatter"
+}</code></pre>
+
+            <h2>Conclusion</h2>
+
+            <p>
+                Wrap up your blog post here with a summary and a call to action. Encourage readers
+                to try <a href="https://cleanmyjson.com/">Clean My JSON</a> for their JSON formatting needs.
+            </p>
+
+            <!-- END TEMPLATE CONTENT -->
+        </article>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <p>&copy; 2026 <a href="https://cleanmyjson.com/">Clean My JSON</a>. All rights reserved.</p>
+            <nav>
+                <a href="https://cleanmyjson.com/#/about">About</a>
+                <span class="dot">·</span>
+                <a href="https://cleanmyjson.com/#/contact">Contact</a>
+                <span class="dot">·</span>
+                <a href="https://cleanmyjson.com/#/privacy">Privacy</a>
+                <span class="dot">·</span>
+                <a href="https://cleanmyjson.com/#/terms">Terms</a>
+            </nav>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B8GCFENCYD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-B8GCFENCYD');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10963579332"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-10963579332');
+    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Getting Started with JSON Formatting – Clean My JSON Blog</title>
+<meta name="description" content="Learn the basics of JSON formatting, why clean readable JSON matters, and how Clean My JSON helps you validate and format JSON instantly.">
+<meta name="author" content="CleanMyJSON">
+<link rel="canonical" href="https://cleanmyjson.com/blog/getting-started-with-json-formatting">
+
+<meta property="og:title" content="Getting Started with JSON Formatting – Clean My JSON Blog">
+<meta property="og:description" content="Learn the basics of JSON formatting and how Clean My JSON can speed up your workflow.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://cleanmyjson.com/blog/getting-started-with-json-formatting">
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Getting Started with JSON Formatting",
+    "description": "Learn the basics of JSON formatting and how Clean My JSON can speed up your workflow.",
+    "author": {
+        "@type": "Organization",
+        "name": "CleanMyJSON"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "CleanMyJSON",
+        "url": "https://cleanmyjson.com/"
+    },
+    "datePublished": "2026-02-15",
+    "dateModified": "2026-02-15",
+    "mainEntityOfPage": "https://cleanmyjson.com/blog/getting-started-with-json-formatting"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --background: 0 0% 98%;
+        --foreground: 220 20% 10%;
+        --card: 0 0% 100%;
+        --card-foreground: 220 20% 10%;
+        --primary: 174 72% 40%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 220 14% 92%;
+        --secondary-foreground: 220 20% 20%;
+        --muted: 220 14% 94%;
+        --muted-foreground: 215 15% 45%;
+        --accent: 174 72% 40%;
+        --border: 220 14% 85%;
+    }
+
+    .dark {
+        --background: 220 20% 10%;
+        --foreground: 210 20% 95%;
+        --card: 220 18% 13%;
+        --card-foreground: 210 20% 95%;
+        --primary: 174 72% 46%;
+        --primary-foreground: 220 20% 10%;
+        --secondary: 220 16% 18%;
+        --secondary-foreground: 210 20% 85%;
+        --muted: 220 14% 16%;
+        --muted-foreground: 215 15% 55%;
+        --accent: 174 72% 46%;
+        --border: 220 14% 20%;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+        font-family: 'Inter', system-ui, sans-serif;
+        background: hsl(var(--background));
+        color: hsl(var(--foreground));
+        line-height: 1.7;
+    }
+
+    a { color: hsl(var(--primary)); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+
+    .site-header {
+        border-bottom: 1px solid hsl(var(--border));
+        padding: 1rem 0;
+        margin-bottom: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .site-header .logo {
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    .site-header nav { display: flex; align-items: center; gap: 1rem; }
+
+    .theme-toggle {
+        background: none;
+        border: 1px solid hsl(var(--border));
+        border-radius: 0.5rem;
+        padding: 0.4rem 0.6rem;
+        cursor: pointer;
+    }
+
+    .post-meta {
+        color: hsl(var(--muted-foreground));
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .post-tags {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+    }
+
+    .post-tags .tag {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: hsl(var(--primary));
+        background: hsl(var(--primary) / 0.1);
+        padding: 0.2rem 0.6rem;
+        border-radius: 999px;
+    }
+
+    .post-title {
+        font-size: 2.25rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+    }
+
+    article h2 {
+        font-size: 1.5rem;
+        margin: 2rem 0 0.75rem;
+    }
+
+    article h3 {
+        font-size: 1.2rem;
+        margin: 1.5rem 0 0.5rem;
+    }
+
+    article p { margin-bottom: 1.25rem; }
+
+    article ul {
+        margin-bottom: 1.25rem;
+        padding-left: 1.5rem;
+    }
+
+    article pre {
+        background: hsl(var(--card));
+        border: 1px solid hsl(var(--border));
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+    }
+
+    article code {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.85rem;
+    }
+
+    .site-footer {
+        border-top: 1px solid hsl(var(--border));
+        margin-top: 3rem;
+        padding-top: 2rem;
+        text-align: center;
+        font-size: 0.875rem;
+    }
+
+    .site-footer nav {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 0.75rem;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            <a href="https://cleanmyjson.com/" class="logo">Clean My JSON</a>
+            <nav>
+                <a href="https://cleanmyjson.com/">Home</a>
+                <a href="https://cleanmyjson.com/#/about">About</a>
+                <button class="theme-toggle" onclick="document.documentElement.classList.toggle('dark')">🌓</button>
+            </nav>
+        </header>
+    <article>
+        <h1 class="post-title">Getting Started with JSON Formatting</h1>
+
+        <div class="post-meta">
+            <span>📅 February 15, 2026</span>
+            <span>✍️ CleanMyJSON Team</span>
+            <span>⏱️ 6 min read</span>
+        </div>
+
+        <div class="post-tags">
+            <span class="tag">Tutorial</span>
+            <span class="tag">JSON</span>
+            <span class="tag">Formatting</span>
+        </div>
+
+        <p>
+            If you’ve ever worked with APIs, configuration files, or web applications, you’ve likely encountered messy JSON. 
+            Unformatted data can be hard to read, difficult to debug, and frustrating to maintain. 
+            Getting started with JSON formatting is one of the simplest ways to improve your development workflow.
+        </p>
+
+        <p>
+            In this guide, you’ll learn what JSON formatting is, why clean and readable JSON matters, 
+            and how <a href="https://cleanmyjson.com/">Clean My JSON</a> can instantly format, validate, and fix your JSON data.
+        </p>
+
+        <h2>What Is JSON Formatting?</h2>
+
+        <p>
+            JSON formatting (also called pretty printing JSON) is the process of adding indentation, line breaks, 
+            and consistent spacing to raw JSON data to make it easier for humans to read.
+        </p>
+
+        <h3>Unformatted JSON Example</h3>
+
+        <pre><code>{“id”:1,“user”:{“name”:“Waleed”,“roles”:[“admin”,“editor”],“active”:true},“orders”:[{“orderId”:101,“amount”:250.75},{“orderId”:102,“amount”:89.50}]}
+                <p>
+            While technically valid, this compact JSON is difficult to scan quickly.
+        </p>
+
+        <h3>Formatted JSON Example</h3>
+
+        <pre><code>{
+            “id”: 1,
+“user”: {
+“name”: “Waleed”,
+“roles”: [
+“admin”,
+“editor”
+],
+“active”: true
+},
+“orders”: [
+{
+“orderId”: 101,
+“amount”: 250.75
+},
+{
+“orderId”: 102,
+“amount”: 89.5
+}
+]
+}
+        <p>
+            Notice how indentation and spacing make the structure clear and easy to follow.
+        </p>
+
+        <h2>Why Clean, Readable JSON Matters</h2>
+
+        <ul>
+            <li><strong>Faster debugging:</strong> Easily spot missing brackets or misplaced commas.</li>
+            <li><strong>Improved collaboration:</strong> Teammates can quickly understand structured data.</li>
+            <li><strong>Reduced errors:</strong> Clean formatting helps identify structural mistakes.</li>
+            <li><strong>Better version control diffs:</strong> Clear indentation makes changes easier to track.</li>
+        </ul>
+
+        <h2>Common JSON Formatting Mistakes</h2>
+
+        <h3>1. Missing Quotes Around Keys</h3>
+
+        <pre><code>{
+            name: “Waleed”,
+“age”: 30
+}
+        <p>This is invalid because JSON requires double quotes around keys.</p>
+
+        <pre><code>{“name”: “Waleed”,
+“age”: 30
+}
+        <h3>2. Trailing Commas</h3>
+
+        <pre><code>{“city”: “Riyadh”,
+“country”: “Saudi Arabia”,
+}
+        <p>Trailing commas are not allowed in standard JSON.</p>
+
+        <pre><code>{“city”: “Riyadh”,
+“country”: “Saudi Arabia”
+}
+        <h2>How Clean My JSON Speeds Up Your Workflow</h2>
+
+        <p>
+            Instead of manually fixing spacing and structure, you can use 
+            <a href="https://cleanmyjson.com/">Clean My JSON</a> to:
+        </p>
+
+        <ul>
+            <li>Format and pretty print JSON instantly</li>
+            <li>Validate JSON structure</li>
+            <li>Detect and fix common JSON errors</li>
+            <li>Minify JSON for production use</li>
+        </ul>
+
+        <p>
+            Just paste your raw JSON into the editor, click format, and get clean, readable output in seconds.
+        </p>
+
+        <h2>Step-by-Step: Formatting JSON Online</h2>
+
+        <ol>
+            <li>Copy your raw JSON data.</li>
+            <li>Open <a href="https://cleanmyjson.com/">Clean My JSON</a>.</li>
+            <li>Paste your JSON into the editor.</li>
+            <li>Click the Format button.</li>
+            <li>Review, copy, or download your clean JSON.</li>
+        </ol>
+
+        <h2>Conclusion</h2>
+
+        <p>
+            Getting started with JSON formatting is simple, but it makes a big difference. 
+            Clean, readable JSON improves debugging, collaboration, and overall productivity.
+        </p>
+
+        <p>
+            Whether you're a developer, QA engineer, or student learning APIs, 
+            try <a href="https://cleanmyjson.com/">Clean My JSON</a> today and make messy JSON a thing of the past.
+        </p>
+    </article>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 <a href="https://cleanmyjson.com/">Clean My JSON</a>. All rights reserved.</p>
+        <nav>
+            <a href="https://cleanmyjson.com/#/about">About</a>
+            <span>·</span>
+            <a href="https://cleanmyjson.com/#/contact">Contact</a>
+            <span>·</span>
+            <a href="https://cleanmyjson.com/#/privacy">Privacy</a>
+            <span>·</span>
+            <a href="https://cleanmyjson.com/#/terms">Terms</a>
+        </nav>
+    </footer>
+</div>
+</body>
+</html>
